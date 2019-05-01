@@ -1,0 +1,16 @@
+download/*
+cache/*
+
+# files from `make O=../make BR2_EXTERNAL=../custom ...`
+make/.br-external.mk
+make/.config
+make/Makefile
+make/build/
+
+# files from the `make` builds
+..config.tmp
+.config.old
+host/
+images/
+staging
+target/

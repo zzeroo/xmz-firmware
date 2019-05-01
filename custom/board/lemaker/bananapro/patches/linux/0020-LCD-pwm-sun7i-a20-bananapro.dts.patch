@@ -1,0 +1,13 @@
+diff --git a/arch/arm/boot/dts/sun7i-a20-bananapro.dts b/arch/arm/boot/dts/sun7i-a20-bananapro.dts
+index e7af1b7c33d5..f1a141ae23d7 100644
+--- a/arch/arm/boot/dts/sun7i-a20-bananapro.dts
++++ b/arch/arm/boot/dts/sun7i-a20-bananapro.dts
+@@ -265,3 +265,8 @@
+ 	usb2_vbus-supply = <&reg_usb2_vbus>;
+ 	status = "okay";
+ };
++&pwm {
++  pinctrl-names = "default";
++  pinctrl-0 = <&pwm0_pins_a>, <&pwm1_pins_a>;
++  status = "okay";
++};

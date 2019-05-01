@@ -11,7 +11,7 @@ git submodule update
 Now you have to create the basic buildroot Makefiles. Call these commands:
 ```
 cd buildroot
-make O=../make BR2_EXTERNAL=../custom help
+make O=../make BR2_EXTERNAL=../custom xmz_bananapro_defconfig
 ```
 
 Finaly change into the `make` dir (You have to call **ALL** buildroot commands
@@ -20,7 +20,7 @@ the configuration for the Lemaker BananaPro board.
 ```
 cd ..
 cd make
-make xmz_bananapro_defconfig
+make menuconfig
 make
 ```
 

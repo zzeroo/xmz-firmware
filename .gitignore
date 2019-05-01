@@ -1,2 +1,7 @@
 download/*
 cache/*
+
+make/.br-external.mk
+make/.config
+make/Makefile
+make/build/

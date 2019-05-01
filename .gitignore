@@ -14,3 +14,6 @@ host/
 images/
 staging
 target/
+
+# Exclude log files
+*/build*.log

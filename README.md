@@ -3,13 +3,13 @@ Buikldroot driven xmz firmware generation toolchain.
 # Start custom build
 First you have to check out the buildroot. Buildroot is an git submodule.
 So first checkout the submodule and update to the version this repo holds.
-```
+```bash
 git submodule init
 git submodule update
 ```
 
 Now you have to create the basic buildroot Makefiles. Call these commands:
-```
+```bash
 cd buildroot
 make O=../make BR2_EXTERNAL=../custom xmz_bananapro_defconfig
 ```
@@ -17,10 +17,10 @@ make O=../make BR2_EXTERNAL=../custom xmz_bananapro_defconfig
 Finaly change into the `make` dir (You have to call **ALL** buildroot commands
 from here!) and call a defconfig for the needed board. In this example we call
 the configuration for the Lemaker BananaPro board.
-```
+```bash
 cd ..
 cd make
-make menuconfig
+# make menuconfig
 make
 ```
 

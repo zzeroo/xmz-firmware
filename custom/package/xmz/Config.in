@@ -1,0 +1,10 @@
+config BR2_PACKAGE_XMZ
+  bool "xMZ"
+  help
+    xMZ basics
+
+    https://zzeroo.com/xmz
+
+if BR2_PACKAGE_XMZ
+  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz_weston_init_systemd/Config.in"
+endif

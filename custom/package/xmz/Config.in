@@ -7,4 +7,5 @@ config BR2_PACKAGE_XMZ
 
 if BR2_PACKAGE_XMZ
   source "$BR2_EXTERNAL_XMZ_PATH/package/xmz_weston_init_systemd/Config.in"
+  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz_weston_config/Config.in"
 endif

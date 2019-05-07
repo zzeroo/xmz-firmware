@@ -17,9 +17,12 @@ define XMZ_WESTON_CONFIG_INSTALL_TARGET_CMDS
 		# weston configuration
 		$(INSTALL) -D -m 0644 $(@D)/weston.ini \
 				$(TARGET_DIR)/etc/xdg/weston/weston.ini
-		# wallpaper RA-GAS
-		$(INSTALL) -D -m 0644 $(@D)/wallpaper-desktop-ra-gas.png \
-				$(TARGET_DIR)/usr/share/backgrounds/ra-gas/wallpaper-desktop-ra-gas.png
+		# wallpaper zzeroo system
+		$(INSTALL) -D -m 0644 $(@D)/wallpaper-desktop-zzeroo-systems.png \
+				$(TARGET_DIR)/usr/share/backgrounds/weston-desktop.png
+#		# wallpaper RA-GAS
+#		$(INSTALL) -D -m 0644 $(@D)/wallpaper-desktop-ra-gas.png \
+#				$(TARGET_DIR)/usr/share/backgrounds/weston-desktop.png
 		# disable mouse pointer
 		$(INSTALL) -D -m 0644 $(@D)/disable_mousepointer.rules \
 				$(TARGET_DIR)/etc/udev/rules.d/disable_mousepointer.rules

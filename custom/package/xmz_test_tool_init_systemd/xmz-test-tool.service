@@ -1,0 +1,19 @@
+# xmz-test-tool.service
+#
+# systemd Unit für das Test Tool der 'xMZ-Plattform'
+#
+[Unit]
+Description="Testtool der 'xMZ-Plattform'"
+After=weston.service
+
+[Service]
+Type=simple
+Environment=XDG_RUNTIME_DIR=/run/user/root
+Environment=XMZ_HARDWARE=0.1.0
+Environment=LANG=de_DE.UTF-8
+ExecStart=/usr/bin/xmz-test-tool
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

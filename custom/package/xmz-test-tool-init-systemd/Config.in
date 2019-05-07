@@ -1,0 +1,10 @@
+comment "xmz-test-tool systemd unit file depends on the xmz-test-tool"
+  depends on !BR2_PACKAGE_XMZ_TEST_TOOL
+
+config BR2_PACKAGE_XMZ_TEST_TOOL_INIT_SYSTEMD
+  bool "systemd unit files for xmz-test-tool"
+  depends on BR2_PACKAGE_XMZ_TEST_TOOL
+  help
+    Unit files for systemd to control the xmz-test-tool.
+
+    https://zzeroo.com/xmz-test-tool

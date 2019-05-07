@@ -2,13 +2,13 @@ comment "xMZ-Test-Tool depends on libgtk"
   depends on !BR2_PACKAGE_LIBGTK3
 
 config BR2_PACKAGE_XMZ_TEST_TOOL
-  bool "xMZ-Test Tool"
+  bool "xmz-test-tool"
   depends on BR2_PACKAGE_LIBGTK3
   help
-    xMZ Test Tool
+    A tool to test many aspects of the xMZ platform.
 
     https://zzeroo.com/xmz
 
 if BR2_PACKAGE_XMZ
-source "$BR2_EXTERNAL_XMZ_PATH/package/xmz_test_tool_init_systemd/Config.in"
+source "$BR2_EXTERNAL_XMZ_PATH/package/xmz-test-tool-init-systemd/Config.in"
 endif

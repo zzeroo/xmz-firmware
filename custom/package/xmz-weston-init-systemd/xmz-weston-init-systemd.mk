@@ -1,11 +1,11 @@
 ################################################################################
 #
-# xmz_weston_init_systemd
+# xmz-weston-init-systemd
 #
 ################################################################################
 
 XMZ_WESTON_INIT_SYSTEMD_VERSION = 0.1.0
-XMZ_WESTON_INIT_SYSTEMD_SITE = ../custom/package/xmz_weston_init_systemd
+XMZ_WESTON_INIT_SYSTEMD_SITE = ../custom/package/xmz-weston-init-systemd
 XMZ_WESTON_INIT_SYSTEMD_SITE_METHOD = local
 XMZ_WESTON_INIT_SYSTEMD_LICENSE = GPL-2.0+
 XMZ_WESTON_INIT_SYSTEMD_LICENSE_FILES = COPYING

@@ -5,7 +5,7 @@
 ################################################################################
 
 XMZ_WESTON_CONFIG_VERSION = 0.1.0
-XMZ_WESTON_CONFIG_SITE = ../custom/package/xmz_weston_config
+XMZ_WESTON_CONFIG_SITE = ../custom/package/xmz-weston-config
 XMZ_WESTON_CONFIG_SITE_METHOD = local
 XMZ_WESTON_CONFIG_LICENSE = GPL-2.0+
 XMZ_WESTON_CONFIG_LICENSE_FILES = COPYING

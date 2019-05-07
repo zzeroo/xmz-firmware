@@ -2,7 +2,7 @@ comment "weston-config depends on udev, systemd and weston."
   depends on !BR2_PACKAGE_HAS_UDEV || !BR2_INIT_SYSTEMD || !BR2_PACKAGE_WESTON
 
 config BR2_PACKAGE_XMZ_WESTON_CONFIG
-	bool "Weston config"
+	bool "Weston configuration"
 	depends on  BR2_INIT_SYSTEMD
 	depends on BR2_PACKAGE_WESTON
 	depends on BR2_INIT_SYSTEMD
@@ -10,7 +10,7 @@ config BR2_PACKAGE_XMZ_WESTON_CONFIG
 		Weston configuration.
 
 		This configuration files provides touchscreen support and wallpapers for
-		the weston installation.
+		a weston installation on the target.
 
 		https://zzeroo.com/xmz
 
@@ -19,5 +19,5 @@ config BR2_PACKAGE_XMZ_WESTON_CONFIG_WALLPAPER_RA_GAS
 	bool "Wallpaper RA-GAS GmbH"
 
 	help
-		Wallpaper with logo of RA-GAS GmbH Kernen i.R.
+		Wallpaper with logo of the RA-GAS GmbH Kernen i.R.
 endif

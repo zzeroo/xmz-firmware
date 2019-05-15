@@ -5,8 +5,9 @@
 ################################################################################
 
 # XMZ_SERVER_VERSION = master
-XMZ_SERVER_VERSION = development
-XMZ_SERVER_SITE = git://github.com/zzeroo/xmz-server.git
+# XMZ_SERVER_VERSION = development
+XMZ_SERVER_VERSION = d647d8e35339b975d37758faaf21cd8f9820afd9
+XMZ_SERVER_SITE = $(call github,zzeroo,xmz-server,$(XMZ_SERVER_VERSION))
 XMZ_SERVER_LICENSE = GPL-2.0+
 XMZ_SERVER_LICENSE_FILES = COPYING
 
@@ -28,8 +29,8 @@ define XMZ_SERVER_BUILD_CMDS
 endef
 
 define XMZ_SERVER_INSTALL_TARGET_CMDS
-   $(INSTALL) -D -m 0755 $(@D)/$(XMZ_SERVER_BIN_DIR)/xmz-server \
-           $(TARGET_DIR)/usr/bin/xmz-server
+	$(foreach u,$(shell find $(@D)/$(XMZ_SERVER_BIN_DIR)/ -maxdepth 1 -executable -type f -printf "%f\n"),\
+	$(INSTALL) -D -m 0755 $(@D)/$(XMZ_SERVER_BIN_DIR)/$(u) $(TARGET_DIR)/usr/bin/$(u)$(sep))
 endef
 
 $(eval $(generic-package))

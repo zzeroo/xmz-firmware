@@ -3,7 +3,7 @@
 # Unit files for systemd to control the xmz-test-tool.
 #
 [Unit]
-Description="A tool to test many aspects of the xMZ platform."
+Description="Test tool for the 'xMZ' platform."
 After=weston.service
 
 [Service]

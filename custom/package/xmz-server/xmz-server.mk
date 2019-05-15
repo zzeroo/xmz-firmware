@@ -5,8 +5,7 @@
 ################################################################################
 
 # XMZ_SERVER_VERSION = master
-# XMZ_SERVER_VERSION = development
-XMZ_SERVER_VERSION = d647d8e35339b975d37758faaf21cd8f9820afd9
+XMZ_SERVER_VERSION = 39b8203b73cb3b98b70e85ea3e8072bf4ac6f61f
 XMZ_SERVER_SITE = $(call github,zzeroo,xmz-server,$(XMZ_SERVER_VERSION))
 XMZ_SERVER_LICENSE = GPL-2.0+
 XMZ_SERVER_LICENSE_FILES = COPYING

@@ -1,0 +1,18 @@
+config BR2_PACKAGE_XMZ_CONFIG
+  bool "xmz-configuration"
+  help
+    Additional configuration of the 'xMZ' platform
+
+    https://zzeroo.com/xmz
+
+if BR2_PACKAGE_XMZ_CONFIG
+
+  comment "xmz-config-wlan depends on the wpa_supplicant"
+    depends on !BR2_PACKAGE_WPA_SUPPLICANT
+
+  config XMZ_CONFIG_WLAN
+  bool "xmz-config-wlan"
+  help
+    wpa_supplicant and network config.
+
+endif

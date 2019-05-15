@@ -13,17 +13,23 @@ XMZ_WESTON_CONFIG_LICENSE_FILES = COPYING
 XMZ_WESTON_CONFIG_DEPENDENCIES = weston systemd
 
 
+
+ifeq ($(BR2_PACKAGE_XMZ_WESTON_CONFIG_WALLPAPER_ZZEROO),y)
+# wallpaper zzeroo system
+XMZ_WESTON_CONFIG_WALLPAPER_NAME = wallpaper-desktop-zzeroo-systems.png
+else
+# wallpaper RA-GAS
+XMZ_WESTON_CONFIG_WALLPAPER_NAME = wallpaper-desktop-ra-gas.png
+endif
+
 define XMZ_WESTON_CONFIG_INSTALL_TARGET_CMDS
 		# weston configuration
 		$(INSTALL) -D -m 0644 $(@D)/weston.ini \
 				$(TARGET_DIR)/etc/xdg/weston/weston.ini
-		# wallpaper zzeroo system
-		$(INSTALL) -D -m 0644 $(@D)/wallpaper-desktop-zzeroo-systems.png \
+
+		$(INSTALL) -D -m 0644 $(@D)/$(XMZ_WESTON_CONFIG_WALLPAPER_NAME) \
 				$(TARGET_DIR)/usr/share/backgrounds/weston-desktop.png
-#		# wallpaper RA-GAS
-#		$(INSTALL) -D -m 0644 $(@D)/wallpaper-desktop-ra-gas.png \
-#				$(TARGET_DIR)/usr/share/backgrounds/weston-desktop.png
-		# disable mouse pointer
+
 		$(INSTALL) -D -m 0644 $(@D)/disable_mousepointer.rules \
 				$(TARGET_DIR)/etc/udev/rules.d/disable_mousepointer.rules
 endef

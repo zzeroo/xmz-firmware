@@ -27,7 +27,7 @@ define XMZ_TEST_TOOL_BUILD_CMDS
 endef
 
 define XMZ_TEST_TOOL_INSTALL_TARGET_CMDS
-   $(INSTALL) -D -m 0755 $(@D)/$(XMZ_TEST_TOOL_BIN_DIR)/xmz-test-tool \
+   $(INSTALL) -D -m 0644 $(@D)/$(XMZ_TEST_TOOL_BIN_DIR)/xmz-test-tool \
            $(TARGET_DIR)/usr/bin/xmz-test-tool
 endef
 

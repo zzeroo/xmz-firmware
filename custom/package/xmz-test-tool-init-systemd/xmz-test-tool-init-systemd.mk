@@ -14,7 +14,7 @@ XMZ_TEST_TOOL_INIT_SYSTEMD_DEPENDENCIES = weston systemd xmz-test-tool
 
 
 define XMZ_TEST_TOOL_INIT_SYSTEMD_INSTALL_INIT_SYSTEMD
-		$(INSTALL) -D -m 0755 $(@D)/xmz-test-tool.service \
+		$(INSTALL) -D -m 0644 $(@D)/xmz-test-tool.service \
 				$(TARGET_DIR)/usr/lib/systemd/system/xmz-test-tool.service
 		mkdir -p $(TARGET_DIR)/etc/systemd/system/multi-user.target.wants
 		ln -sf /usr/lib/systemd/system/xmz-test-tool.service \

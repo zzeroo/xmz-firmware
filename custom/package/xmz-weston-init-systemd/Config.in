@@ -1,0 +1,11 @@
+comment "The systemd unit files for weston depends on systemd and weston of course."
+  depends on !BR2_PACKAGE_WESTON || !BR2_INIT_SYSTEMD
+
+config BR2_PACKAGE_XMZ_WESTON_INIT_SYSTEMD
+  bool "Weston systemd unit file"
+  depends on BR2_PACKAGE_WESTON
+  depends on BR2_INIT_SYSTEMD
+  help
+    Initalizes a basic weston session on tty1.
+
+    https://zzeroo.com/xmz

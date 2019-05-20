@@ -1,0 +1,7 @@
+
+config BR2_PACKAGE_XMZ_SERVER
+  bool "xmz-server"
+  help
+    Server of the xMZ platform
+
+    https://zzeroo.com/xmz

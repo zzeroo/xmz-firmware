@@ -1,0 +1,48 @@
+diff --git a/arch/arm/boot/dts/sun7i-a20-bananapro.dts b/arch/arm/boot/dts/sun7i-a20-bananapro.dts
+index e7af1b7c33d5..9537cd418157 100644
+--- a/arch/arm/boot/dts/sun7i-a20-bananapro.dts
++++ b/arch/arm/boot/dts/sun7i-a20-bananapro.dts
+@@ -147,6 +147,22 @@
+ 	status = "okay";
+ };
+ 
++&i2c3 {
++  status = "okay";
++  pinctrl-names = "default";
++  pinctrl-0 = <&i2c3_pins_a>;
++  edt: edt-ft5x06@38 {
++    compatible = "edt,edt-ft5x06", "edt,edt-ft5206";
++    reg = <0x38>;
++    pinctrl-names = "default";
++    pinctrl-0 = <&edt_ft5x06_pins_a &edt_ft5x06_pins_b>;
++    interrupt-parent = <&pio>;
++    interrupts = <7 9 IRQ_TYPE_EDGE_FALLING>;
++    touchscreen-size-x = <1024>;
++    touchscreen-size-y = <600>;
++  };
++};
++
+ &ir0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&ir0_rx_pins_a>;
+@@ -220,6 +236,20 @@
+ 		pins = "PH22";
+ 		function = "gpio_out";
+ 	};
++
++  edt_ft5x06_pins_a: ft5@0 { // interrupt
++    pins = "PH9";
++    function = "irq";
++    drive-strength = <20>;
++    bias-pull-up;
++  };
++  edt_ft5x06_pins_b: ft5@1 { // reset-gpios
++    pins = "PH7";
++    function = "gpio_out";
++    drive-strength = <20>;
++    bias-pull-up;
++    output-high;
++  };
+ };
+ 
+ &reg_usb1_vbus {

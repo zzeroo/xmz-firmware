@@ -1,0 +1,10 @@
+comment "Rust package dependes on rustc"
+  depends on !BR2_PACKAGE_RUSTC
+
+config BR2_PACKAGE_RUST_PACKAGE
+  bool "Rust package"
+  depends on BR2_PACKAGE_RUSTC
+  help
+    A tool to test a rust package.
+
+    https://zzeroo.com/

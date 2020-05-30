@@ -1,5 +1,20 @@
 Buikldroot driven xmz firmware generation toolchain.
 
+# Vorbereitungen
+## Abhängigkeiten installieren
+https://buildroot.org/downloads/manual/manual.html#_getting_started
+
+## Arch
+### required
+```bash
+pacman -S --needed which sed make binutils gcc bash patch gzip bzip2 perl tar cpio python unzip rsync file bc wget git rsync subversion
+```
+
+### optional
+```bash
+pacman -S --needed ncurses qt5 glib2 gtk3 glade
+```
+
 # Start custom build
 First you have to check out the buildroot. Buildroot is an git submodule.
 So first checkout the submodule and update to the version this repo holds.

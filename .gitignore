@@ -2,7 +2,8 @@ download/*
 cache/*
 
 # files from `make O=../make BR2_EXTERNAL=../custom ...`
-make/.br-external.mk
+make/.br-external*
+make/.br2-external*
 make/.config
 make/Makefile
 make/build/

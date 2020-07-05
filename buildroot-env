@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# call this script like so: `. ./buildroot-env <builddir>
+
+
+
+if [ -n "$BASH_SOURCE" ]; then
+    THIS_SCRIPT=$BASH_SOURCE
+elif [ -n "$ZSH_NAME" ]; then
+    THIS_SCRIPT=$0
+else
+    THIS_SCRIPT="$(pwd)/oe-init-build-env"
+    if [ ! -e "$THIS_SCRIPT" ]; then
+        echo "Error: $THIS_SCRIPT doesn't exist!" >&2
+        echo "Please run this script in xmz-firmware's directory." >&2
+        exit 1
+    fi
+fi
+
+if [ -z "$ZSH_NAME" ] && [ "$0" = "$THIS_SCRIPT" ]; then
+    echo "Error: This script needs to be sourced. Please run as '. $THIS_SCRIPT'" >&2
+    exit 1
+fi
+
+if [ -z "$BUILDROOT" ]; then
+    BUILDROOT=$(dirname "$THIS_SCRIPT")
+    BUILDROOT=$(readlink -f "$BUILDROOT")
+fi
+unset THIS_SCRIPT
+
+export BR2_DL_DIR="$BUILDROOT/download"
+export BR2_CCACHE_DIR="$BUILDROOT/cache"
+
+
+if [ -z "$BUILDDIR" ]; then
+    echo >&2 "Error: The build directory (BUILDDIR) must be set!"
+    exit 1
+fi
+
+mkdir -p "$BUILDDIR"
+
+if [ ! -d "$BUILDDIR" ]; then
+    echo >&2 "Error: The builddir ($BUILDDIR) does not exist!"
+    exit 1
+fi
+
+if [ ! -w "$BUILDDIR" ]; then
+    echo >&2 "Error: Cannot write to $BUILDDIR, perhaps try sourcing with a writable path? i.e. . buildroot-env ~/my-build"
+    exit 1
+fi
+
+# Attempting removal of sticky,setuid bits from BUILDDIR
+chmod -st "$BUILDDIR" 2>/dev/null || echo "WARNING: unable to chmod $BUILDDIR"
+
+cd "$BUILDROOT"/buildroot
+make O=../"$BUILDROOT" BR2_EXTERNAL=../custom help
+
+cd "$BUILDDIR"
+
+

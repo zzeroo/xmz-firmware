@@ -8,7 +8,7 @@ EnvironmentFile=-/etc/default/weston
 Environment="XDG_RUNTIME_DIR=/run/user/root"
 ExecStartPre=/bin/mkdir -p /run/user/root
 ExecStartPre=/bin/chmod 0700 /run/user/root
-ExecStart=/usr/bin/weston --backend=/usr/lib/weston/fbdev-backend.so --tty=1
+ExecStart=/usr/bin/weston --backend=/usr/lib/weston/fbdev-backend.so --tty=1 --log=/var/log/weston.log
 
 [Install]
 WantedBy=multi-user.target

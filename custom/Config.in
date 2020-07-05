@@ -1,2 +1,1 @@
-# Remove comments (#) to enable packages
 source "$BR2_EXTERNAL_XMZ_PATH/package/xmz/Config.in"

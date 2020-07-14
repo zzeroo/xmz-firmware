@@ -1,1 +1,3 @@
 source "$BR2_EXTERNAL_XMZ_PATH/package/xmz/Config.in"
+
+source "$BR2_EXTERNAL_XMZ_PATH/package/resize-rootfs/Config.in"

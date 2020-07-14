@@ -1,0 +1,14 @@
+config BR2_PACKAGE_RESIZE_ROOTFS
+  bool "Resize the root filesystem"
+  depends on BR2_INIT_SYSTEMD
+  select BR2_PACKAGE_E2FSPROGS
+  select BR2_PACKAGE_E2FSPROGS_RESIZE2FS
+  select BR2_PACKAGE_GPTFDISK
+  select BR2_PACKAGE_GPTFDISK_GDISK
+  select BR2_PACKAGE_GPTFDISK_SGDISK
+  select BR2_PACKAGE_PARTED
+
+  help
+    Resize root filesystem to fit available disk space
+
+    https://zzeroo.com/xmz

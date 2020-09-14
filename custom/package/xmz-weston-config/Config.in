@@ -16,7 +16,7 @@ config BR2_PACKAGE_XMZ_WESTON_CONFIG
 
 
 if BR2_PACKAGE_XMZ_WESTON_CONFIG
-  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz/xmz-weston-init-systemd/Config.in"
+  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz-weston-init-systemd/Config.in"
 
 choice
   prompt "Weston Wallpaper"
@@ -37,8 +37,5 @@ config BR2_PACKAGE_XMZ_WESTON_CONFIG_WALLPAPER_RA_GAS
 		Wallpaper with logo of the 'RA-GAS GmbH Kernen i.R.'
 
 endchoice
-
-
-
 
 endif

@@ -1,5 +1,5 @@
 config BR2_PACKAGE_XMZ_CONFIG
-  bool "xmz-configuration"
+  bool "xMZ Configuration"
   help
     Additional configuration of the 'xMZ' platform
 

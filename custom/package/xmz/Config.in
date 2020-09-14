@@ -6,8 +6,8 @@ config BR2_PACKAGE_XMZ
     https://zzeroo.com/xmz
 
 if BR2_PACKAGE_XMZ
-  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz/xmz-config/Config.in"
-  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz/xmz-server/Config.in"
-  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz/xmz-test-tool/Config.in"
-  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz/xmz-weston-config/Config.in"
+  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz-config/Config.in"
+  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz-server/Config.in"
+  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz-test-tool/Config.in"
+  source "$BR2_EXTERNAL_XMZ_PATH/package/xmz-weston-config/Config.in"
 endif

@@ -1,5 +1,0 @@
-[    7.002311] systemd-journald[143]: Creating journal file /var/log/journal/b3da3d6faacf4ad8beb5c917da8ee4ce/system.journal on a btrfs file system, and copy-on-write is enabled. This is likely to slow down journal access substantially, please consider turning off the copy-on-write file attribute on the journal directory, using chattr +C.
-         Starting udev Kernel Device Manager...
-
-
-

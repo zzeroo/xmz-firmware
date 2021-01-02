@@ -1,4 +1,4 @@
-Buikldroot driven xmz firmware generation toolchain.
+Buildroot driven firmware generation toolchain.
 
 # Vorbereitungen
 ## Abhängigkeiten installieren
@@ -28,7 +28,7 @@ Now you have to create the basic buildroot Makefiles. Call these commands:
 
 ```bash
 cd buildroot
-make O=../make BR2_EXTERNAL=../custom xmz_bananapro_defconfig
+make O=../make BR2_EXTERNAL=../custom homeserver_bananapro_defconfig
 ```
 
 Finaly change into the `make` dir (You have to call **ALL** buildroot commands

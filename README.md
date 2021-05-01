@@ -1,7 +1,10 @@
 Buildroot driven firmware generation toolchain.
 
-# Vorbereitungen
-## Abhängigkeiten installieren
+# Version
+
+- Buildroot 	2021.02
+
+# Dependencies
 https://buildroot.org/downloads/manual/manual.html#_getting_started
 
 ## Arch

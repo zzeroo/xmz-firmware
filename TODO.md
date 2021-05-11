@@ -1,32 +1,70 @@
-# NTP
+# Node-RED
 
-https://feeding.cloud.geek.nz/posts/time-synchronization-with-ntp-and-systemd/
-
-# Network
-
-https://wiki.archlinux.org/index.php/Wpa_supplicant#At_boot_(systemd)
-
-
-# MQTT
-
-https://www.digitalocean.com/community/questions/how-to-setup-a-mosquitto-mqtt-server-and-receive-data-from-owntracks
-
+## create user
 
 ```bash
-mosquitto_passwd -c /etc/mosquitto/pwfile homebase
+adduser node-red
 ```
+
+
+## create systemd service file to start Node-RED
+
+```ini
+# /usr/lib/systemd/system/node-red.service
+[Unit]
+Description=Node-RED graphical event wiring tool
+Wants=network.target
+Documentation=http://nodered.org/docs/hardware/raspberrypi.html
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi
+
+Environment="NODE_OPTIONS=--max_old_space_size=512"
+# uncomment and edit next line if you need an http proxy
+#Environment="HTTP_PROXY=my.httpproxy.server.address"
+# uncomment the next line for a more verbose log output
+#Environment="NODE_RED_OPTIONS=-v"
+# uncomment next line if you need to wait for time sync before starting
+#ExecStartPre=/bin/bash -c '/bin/journalctl -b -u systemd-timesyncd | /bin/grep -q "systemd-timesyncd\[.*\]: Initial synchronization to time server"'
+
+ExecStart=/usr/bin/env node-red-pi $NODE_OPTIONS $NODE_RED_OPTIONS
+KillSignal=SIGINT
+# Auto restart on crash
+Restart=on-failure
+RestartSec=20
+# Tag things in the log
+SyslogIdentifier=Node-RED
+#StandardOutput=syslog
+
+[Install]
+WantedBy=multi-user.target
+```
+
+# cog
+## Debug
+
+### Debug on target
 
 ```bash
-mkdir /var/lib/mosquitto/
-chown zzeroo:zzeroo /var/lib/mosquitto/ -R
+XDG_RUNTIME_DIR=/run/user/root gdbserver localhost:20000 cog -P fdo
 ```
 
-mosquitto_sub -h homeserver.zzeroo.lan -p 8883 -v -t 'homebase/#' -u zzeroo -P asrael
+### Debug on development-host
 
-# systemd
+You have to install `gdb-multiarch`
 
-[    7.002311] systemd-journald[143]: Creating journal file /var/log/journal/b3da3d6faacf4ad8beb5c917da8ee4ce/system.journal on a btrfs file system, and copy-on-write is enabled. This is likely to slow down journal access substantially, please consider turning off the copy-on-write file attribute on the journal directory, using chattr +C.
-         Starting udev Kernel Device Manager...
+```bash
+gdb-multiarch target/usr/bin/cog
+```
+
+	then call in gdb
+
+```
+target remote 192.168.8.101:20000
+```
 
 
 

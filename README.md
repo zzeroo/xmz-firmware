@@ -1,24 +1,31 @@
+# xmz-firmware
+
 Buildroot driven firmware generation toolchain.
 
-# Version
+## Version
 
-- Buildroot 	2021.02
+- Buildroot 2021.02
 
-# Dependencies
+## Dependencies
+
 https://buildroot.org/downloads/manual/manual.html#_getting_started
 
-## Arch
-### required
+### Arch
+
+#### required
+
 ```bash
 pacman -S --needed which sed make binutils gcc bash patch gzip bzip2 perl tar cpio python unzip rsync file bc wget git rsync subversion
 ```
 
-### optional
+#### optional
+
 ```bash
 pacman -S --needed ncurses qt5 glib2 gtk3 glade
 ```
 
-# Start custom build
+## Start custom build
+
 First you have to check out the buildroot. Buildroot is an git submodule.
 So first checkout the submodule and update to the version this repo holds.
 
@@ -45,7 +52,7 @@ cd make
 make
 ```
 
-# Directory structure of this project
+## Directory structure of this project
 
 buildroot       Source code of buildroot. Only call update tasks from here.
                 See the '#Update buildroot' capter below.
@@ -62,8 +69,10 @@ download        Download cache of buildroot.
 cache           Compiler Cache (ccache) of buildroot.
 
 
-# Tips and advance usage
-## Update buildroot
+## Tips and advance usage
+
+### Update buildroot
+
 Buildroot itselfs can be updated easily via the following commands.
 
 It's strong adverticed to use the buildroot version, configured in the master
@@ -86,7 +95,8 @@ sudo umount /dev/mmcblk0p{1,2}
 dd if=images/sdcard.img |pv|sudo dd bs=1M of=/dev/mmcblk0
 ```
 
-## Build just kernel and uboot
+### Build just kernel and uboot
+
 First create a time stamp. Then clean linux and uboot build dirs. Then build
 the `time` command prints the time stats after the build.
 
@@ -102,4 +112,17 @@ To view the latest build.log
 
 ```bash
 vim (ls -a build*.log|tail -n1)
+```
+
+# Tipps
+
+## Rebuild target dir
+
+Rebuild the target dir with
+
+```bash
+rm -rf target
+find . -name ".stamp_target_installed" | xargs rm -rf
+# now you can rebuild the target dir
+make
 ```
